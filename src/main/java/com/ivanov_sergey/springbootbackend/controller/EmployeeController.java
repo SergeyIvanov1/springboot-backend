@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
+@CrossOrigin(origins = "http://localhost:3000")
 @RestController
 @RequestMapping("/api/v1/")
 public class EmployeeController {
@@ -36,7 +37,7 @@ public class EmployeeController {
     }
 
     @PostMapping("/employees")
-    public Employee addNewEmployee(@RequestBody Employee employee){ //we are passing JSON? but Spring convert parameter to class
+    public Employee createEmployee(@RequestBody Employee employee){ //we are passing JSON? but Spring convert parameter to class
         employeeService.saveEmployee(employee);
         return employee;
     }
